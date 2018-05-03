@@ -57,7 +57,7 @@ Let's take a step back and examine what's going on here. Chrome extensions can h
 ### Link to Chrome Extensions
 Now it's time to upload our extension to chrome!
 
-* Go to [chrome://extensions](chrome://extensions/) and make sure *Developer mode* in the upper right hand corner is toggled on.
+* Go to <chrome://extensions/> and make sure *Developer mode* in the upper right hand corner is toggled on.
 ![](readme_images/developer-mode.png)
 
 * Click on *Load Unpacked* and select the directory that contains your chrome extension.
