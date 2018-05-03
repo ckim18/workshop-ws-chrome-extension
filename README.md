@@ -64,7 +64,7 @@ Now it's time to upload our extension to chrome!
 ![](readme_images/load_unpacked.png)
 
 * Make sure you turn on chrome extension. If there is an error in the code, it will give you an error message and not let you turn it on.  
-![](readme_images/turn_on.png)
+![](readme_images/loaded.png)
 
 :white_check_mark: Check-in! Navigate to another [website](https://home.dartmouth.edu/) (load a new tab) and inspect the page. In the console, your previous ```console.log``` statement should now appear!
 ![](readme_images/tim_log.png)
@@ -78,7 +78,7 @@ Let's take a moment to understand what we're looking for!
 * Then call ```imgs``` and open the HTMLCollection to view all the images on the page.
 ![](readme_images/image_tags.png)
 
-Expand any image number to view the attributes of the image. Scroll down until you see ```src``` (attributes should be alphabetical). We will be using the ```img``` tag to find and replace the source of each images with your own pictures!
+* Expand any image number to view the attributes of the image. Scroll down until you see ```src``` (attributes should be alphabetical). We will be using the ```img``` tag to find and replace the source of each images with your own pictures!
 
 Now you get to select your images! We have provided some default images of Tim in the img folder, but feel free to replace them with your own! You can fill your pages with unicorns or puppies or delicious food - whatever your heart desires (but why wouldn't you want to use these gems?)!
 
@@ -127,7 +127,7 @@ for (imgElement of imgs) {
 ```
 
 * Now navigate back to [chrome://extensions](chrome://extensions) and hit refresh on the "Chrome ExTimsion" extension:
-![](readme_images/chrome_extension_refresh.png)  
+![](readme_images/refresh_tim.png)  
 Every time you make a change to your code, you need to click this refresh button.
 
 * Navigate to any website (if you go to one that you already have opened make sure to refresh the page so it reloads the extension), and open up the inspector. You should see a list of the image sources!
@@ -145,7 +145,8 @@ But don't we want to replace the current images? Yep, we do! Instead of logging 
 
 What we are doing here is generating a random index into our array (the floor function makes sure that it is an integer), indexing into the array and grabbing that corresponding url, and setting the `src` of the image to that url. An interesting thing here is that we have to use `chrome.runtime.getURL`. We cannot just set `imgElement.src` equal to `file` because these files live inside our chrome extension and image sources need to be actual paths. `chrome.runtime.getURL` gives us back a valid URL of a file that is part of our chrome extension.
 
-* Reload the chrome extension and navigate to a webpage. All the images there should be replaced by images of Tims (or whatever images you used)!
+* Reload the chrome extension and navigate to a webpage. All the images there should be replaced by images of Tims (or whatever images you used)! It will look something like:  
+![](readme_images/tim_image_dartmouth.png)  
 
 ### Replacing text
 Let's do some more replacement and just replace some text.
@@ -161,9 +162,14 @@ let text = document.querySelectorAll('p,li,h1,h2,h3,h4,span,div,b');
 
 We are grabbing all of the HTML structures that display text and replacing all capitalized words using a regex expression in a similar manner to how we replaced images.
 
+* Refresh your extension again in [chrome://extensions](chrome://extensions):  
+![](readme_images/refresh_tim.png)  
+
 ### Adding A button
 
-* We want to be able to turn this extension on and off. Let's go into `manifest.json` and add the following code after `web_accessible_resources` and before `content_scripts`:
+As much as we love Tim, this extension clearly might be quite distracting if we want to actually see the content of the webpage. Let's create a button so we can turn this extension on and off.  
+
+* Go into `manifest.json` and add the following code after `web_accessible_resources` and before `content_scripts`:
 
 ```json
 "permissions": [
@@ -252,7 +258,12 @@ chrome.storage.sync.get("enable", function(result) {
 ```
 We are getting the boolean value from storage here and passing in a callback, telling the script to execute only when the boolean is true.
 
-* Reload your chrome extension in [chrome://extensions](chrome://extensions/). Navigate to any webpage and click the icon, turning it on and off. We can now use this extension only when needed!
+* Reload your chrome extension in [chrome://extensions](chrome://extensions/). Navigate to any webpage and click the icon, turning it on and off. 
+
+The icon should have an 'ON' sign like this when turned on:  
+![](readme_images/tim_on.png)  
+
+Great! Now we can now turn this extension on only when miss Tim and access the internet normally at other times.
 
 ## Summary / What you Learned
 
@@ -260,6 +271,9 @@ We are getting the boolean value from storage here and passing in a callback, te
 * [X] Write some javascript for your chrome extensions
 * [X] Some quick and easy ways to bend complex webpages to your will
 * [X] How to add a pretty chrome extension button in your browser
+
+## Extra Credit
+* Add additional fun, creative features to this extension! Consider incorporating some APIs. Here is a link that might be helpful: https://developer.chrome.com/extensions/api_index
 
 ## Resources
 
