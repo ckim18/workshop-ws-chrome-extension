@@ -145,7 +145,11 @@ But don't we want to replace the current images? Yep, we do! Instead of logging 
 
 What we are doing here is generating a random index into our array (the floor function makes sure that it is an integer), indexing into the array and grabbing that corresponding url, and setting the `src` of the image to that url. An interesting thing here is that we have to use `chrome.runtime.getURL`. We cannot just set `imgElement.src` equal to `file` because these files live inside our chrome extension and image sources need to be actual paths. `chrome.runtime.getURL` gives us back a valid URL of a file that is part of our chrome extension.
 
-* Reload the chrome extension and navigate to a webpage. All the images there should be replaced by images of Tims (or whatever images you used)! It will look something like:  
+* Reload the chrome extension again in [chrome://extensions](chrome://extensions):  
+![](readme_images/refresh_tim.png)  
+
+* Now navigate to a webpage to see what we did!
+All the images there should be replaced by images of Tims (or whatever images you used)! It will look something like:  
 ![](readme_images/tim_image_dartmouth.png)  
 
 ### Replacing text
@@ -258,7 +262,10 @@ chrome.storage.sync.get("enable", function(result) {
 ```
 We are getting the boolean value from storage here and passing in a callback, telling the script to execute only when the boolean is true.
 
-* Reload your chrome extension in [chrome://extensions](chrome://extensions/). Navigate to any webpage and click the icon, turning it on and off. 
+* Don't forget to refresh your chrome extension in [chrome://extensions](chrome://extensions/)! 
+![](readme_images/refresh_tim.png)  
+
+* Navigate to any webpage and click the icon, turning it on and off. 
 
 The icon should have an 'ON' sign like this when turned on:  
 ![](readme_images/tim_on.png)  
