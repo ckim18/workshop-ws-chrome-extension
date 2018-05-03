@@ -169,6 +169,8 @@ We are grabbing all of the HTML structures that display text and replacing all c
 * Refresh your extension again in [chrome://extensions](chrome://extensions):  
 ![](readme_images/refresh_tim.png)  
 
+* Navigate to a webpage again and see what we've made!
+
 ### Adding A button
 
 As much as we love Tim, this extension clearly might be quite distracting if we want to actually see the content of the webpage. Let's create a button so we can turn this extension on and off.  
