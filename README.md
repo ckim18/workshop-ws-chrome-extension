@@ -17,7 +17,7 @@ In order to make google chrome sufficiently Tim-saturated, we'll do the followin
 * [ ] Replace text of choice on webpages to 'Tim!'
 * [ ] Create a pretty button to toggle your extension on and off
 
-All of this will be done with just a javascript file, a manifest.json, and lots of images!
+All of this will be done with just a javascript file, a manifest.json, and some images!
 
 ## Setup
 
